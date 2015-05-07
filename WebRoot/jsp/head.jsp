@@ -33,7 +33,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <h3 class = "nav navbar-text">
-        	<a href="./jsp/main.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon"></span></a> 欢迎使用学生成绩管理系统
+        	<a href="./jsp/main.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "转到主页"></span></a> 欢迎使用学生成绩管理系统
        </h3>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
