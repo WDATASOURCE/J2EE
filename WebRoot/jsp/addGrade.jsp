@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <script type="text/javascript">
-function Confirm(){
+function Confirm(Strvalue){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
@@ -26,7 +26,12 @@ function Confirm(){
             return false;
         }
     }
-    return confirm("确认添加?");
+    var str = Strvalue.value;
+	if(str.match(/^(:?(:?\d+.\d+)|(:?\d+))$/)) return confirm("确认添加?");
+	else{ 
+		alert("成绩输入不合法, 请重新输入!");
+		return false;
+	}
 }
 </script>
 <body>
@@ -61,9 +66,9 @@ ResultSet rsCourse = course.query();
                         %>
                     </select>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "score" placeholder="请输入学生成绩"/>
+                        <input type="text" class="form-control" name = "score" id = "score" placeholder="请输入学生成绩"/>
                     </div>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">添加</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm(document.getElementById('score'))">添加</button>
                 </form>
             </div>
         </div>
