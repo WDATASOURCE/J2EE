@@ -37,7 +37,7 @@ function Confirm(){
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <h3 class = "nav navbar-text">
-        	<a href="./login.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "欢迎登陆"></span></a> 欢迎使用学生成绩管理系统
+        	<a href="./jsp/login.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "欢迎登陆"></span></a> 欢迎使用学生成绩管理系统
        </h3>
       	<button type="button" class="btn btn-default btn-sm navbar-right" data-toggle="modal" data-target="#myModal">提示</button>
     </div>
