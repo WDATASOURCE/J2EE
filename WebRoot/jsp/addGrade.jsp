@@ -27,11 +27,11 @@ function Confirm(Strvalue){
         }
     }
     var str = Strvalue.value;
-	if(str.match(/^(:?(:?\d+.\d+)|(:?\d+))$/)) return confirm("确认添加?");
-	else{ 
-		alert("成绩输入不合法, 请重新输入!");
-		return false;
-	}
+    if(str >= 0 && str <= 100) return confirm("确认添加?");
+    else{
+    	alert("成绩输入不合法, 请重新输入!");
+    	return false;
+    }
 }
 </script>
 <body>
