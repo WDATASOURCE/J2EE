@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">  
-<title>Ìí¼Ó¿Î³ÌĞÅÏ¢</title>
+<title>æ·»åŠ è¯¾ç¨‹ä¿¡æ¯</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -20,28 +20,28 @@ function Confirm(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
-    return confirm("È·ÈÏÌí¼Ó?");
+    return confirm("ç¡®è®¤æ·»åŠ ?");
 }
 </script>
 
 <body>
-<h2 style = "text-align:center">Ìí¼Ó¿Î³ÌĞÅÏ¢</h2>
+<h2 style = "text-align:center">æ·»åŠ è¯¾ç¨‹ä¿¡æ¯</h2>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="form-group">
                 <form action="./servlet/AddCourseServlet" method = "post" class="form-group">
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "cid" placeholder="ÇëÊäÈë¿ÆÄ¿±àºÅ"/>
+                        <input type="text" class="form-control" name = "cid" placeholder="è¯·è¾“å…¥ç§‘ç›®ç¼–å·"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "name" placeholder="ÇëÊäÈë¿ÆÄ¿Ãû³Æ"/>
+                        <input type="text" class="form-control" name = "name" placeholder="è¯·è¾“å…¥ç§‘ç›®åç§°"/>
                     </div>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">Ìí¼Ó</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">æ·»åŠ </button>
                 </form>
             </div>
         </div>

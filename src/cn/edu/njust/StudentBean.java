@@ -1,4 +1,5 @@
 package cn.edu.njust;
+
 import java.sql.*;
 
 public class StudentBean {
@@ -9,8 +10,8 @@ public class StudentBean {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
-	public StudentBean(){
+
+	public StudentBean() {
 		sid = null;
 		name = null;
 		sex = null;
@@ -19,8 +20,8 @@ public class StudentBean {
 		rs = null;
 		sql = null;
 	}
-	
-	public StudentBean(String sid, String name, String sex){
+
+	public StudentBean(String sid, String name, String sex) {
 		conn = null;
 		pstmt = null;
 		sql = null;
@@ -28,43 +29,48 @@ public class StudentBean {
 		this.sid = sid;
 		this.name = name;
 		this.sex = sex;
-		
+
 	}
-	
-	public StudentBean(String id){
+
+	public StudentBean(String id) {
 		this.sid = id;
 	}
-	
-	public void closeConnection(){
+
+	public void closeConnection() {
 		try {
-		 	if(conn != null) conn.close();
-			if(pstmt != null) pstmt.close();	
-			if(rs != null) rs.close();
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (rs != null)
+				rs.close();
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
-			e.printStackTrace();		
+			e.printStackTrace();
 		}
 	}
-	
-	public boolean isExists(){
+
+	public boolean isExists() {
 		conn = DBConnection.getConnection();
 		sql = "select * from `student` where `sid` = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, sid);
 			rs = pstmt.executeQuery();
-			if(rs.next()) return true;
-			else return false;
+			if (rs.next())
+				return true;
+			else
+				return false;
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
-		}finally{
+		} finally {
 			closeConnection();
 		}
 		return false;
 	}
-	
-	public ResultSet query(){
+
+	public ResultSet query() {
 		conn = DBConnection.getConnection();
 		sql = "select * from `student` order by `sid`";
 		try {
@@ -77,9 +83,10 @@ public class StudentBean {
 			return null;
 		}
 	}
-	
-	public int addStudent(){
-		if(isExists()) return 0;		// 已存在
+
+	public int addStudent() {
+		if (isExists())
+			return 0; // 已存在
 		conn = DBConnection.getConnection();
 		sql = "insert into `student`(`sid`, `name`, `sex`)values(?, ?, ?)";
 		try {
@@ -88,19 +95,22 @@ public class StudentBean {
 			pstmt.setString(2, name);
 			pstmt.setString(3, sex);
 			int cnt = pstmt.executeUpdate();
-			if(cnt > 0) return 1;	// 添加成功
-			else return -1;
+			if (cnt > 0)
+				return 1; // 添加成功
+			else
+				return -1;
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 			return -1;
-		}finally{
+		} finally {
 			closeConnection();
 		}
 	}
-	
-	public int deleteStudent(){
-		if(!isExists()) return 0;  // 不存在
+
+	public int deleteStudent() {
+		if (!isExists())
+			return 0; // 不存在
 		conn = DBConnection.getConnection();
 		sql = "delete from `student` where `sid` = ?";
 		try {
@@ -109,34 +119,39 @@ public class StudentBean {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, sid);
 			int cnt = pstmt.executeUpdate();
-			if(cnt > 0) return 1;   // 操作成功；
-			else return -1;			// 失败
+			if (cnt > 0)
+				return 1; // 操作成功；
+			else
+				return -1; // 失败
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 			return -1;
-		}finally{
+		} finally {
 			closeConnection();
 		}
 	}
-	
-	public int changeStudent(){
-		if(!isExists()) return 0;	// 不存在；
+
+	public int changeStudent() {
+		if (!isExists())
+			return 0; // 不存在；
 		conn = DBConnection.getConnection();
 		sql = "update `student` set `name` = ?, `sex` = ? where `sid` = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  name);
+			pstmt.setString(1, name);
 			pstmt.setString(2, sex);
 			pstmt.setString(3, sid);
 			int cnt = pstmt.executeUpdate();
-			if(cnt > 0) return 1;
-			else return -1;
+			if (cnt > 0)
+				return 1;
+			else
+				return -1;
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 			return -1;
-		}finally{
+		} finally {
 			closeConnection();
 		}
 	}

@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>��ӭ��½</title>
+<title>欢迎登陆</title>
 
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -23,7 +23,7 @@ function Confirm(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if((a[i].type == "text" || a[i].type == "password") && a[i].value == ""){
-            alert("�����к���δ��д�ֶ�, ��ȷ����д�������ֶ�!");
+            alert("表单中含有未填写字段, 请确保填写了所有字段!");
             return false;
         }
     }
@@ -37,9 +37,9 @@ function Confirm(){
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <h3 class = "nav navbar-text">
-        	<a href="./jsp/login.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "��ӭ��½"></span></a> ��ӭʹ��ѧ���ɼ�����ϵͳ
+        	<a href="./jsp/login.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "欢迎登陆"></span></a> 欢迎使用学生成绩管理系统
        </h3>
-      	<button type="button" class="btn btn-default btn-sm navbar-right" data-toggle="modal" data-target="#myModal">��ʾ</button>
+      	<button type="button" class="btn btn-default btn-sm navbar-right" data-toggle="modal" data-target="#myModal">提示</button>
     </div>
     </div>
 </nav>
@@ -48,39 +48,40 @@ function Confirm(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">��ʾ</h4>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
       </div>
       <div class="modal-body">
         <ul>
-			<li>��ʼ���û����������Ϊ 123456</li>
-			<li>����ҳ��ı����Ϊ GB2312, ��ʾ�ѱ��������������ı������ݿ����ı���������</li>
+			<li>初始的用户名和密码均为 123456</li>
+			<li>所有页面的编码均为 UTF-8, 表示已被各种命令行中文编码数据库中文编码问题搞疯</li>
+			<li>默认的数据库 root 密码为空, 请根据实际情况在 src/cn/edu/njust/DBConnection.java 中改里面的私有成员 password 的值</li>
 			</ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">�ر�</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
-    <h1 class="center-block text-center" style="max-width:400px;position: relative">������½</h1>
+    <h1 class="center-block text-center" style="max-width:400px;position: relative">请您登陆</h1>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="form-group">
                 <form action="./servlet/LoginServlet" method = "post" class="form-group">
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "tid" placeholder="�������û���"/>
+                        <input type="text" class="form-control" name = "tid" placeholder="请输入用户名"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name = "password" placeholder="����������"/>
+                        <input type="password" class="form-control" name = "password" placeholder="请输入密码"/>
                     </div>
                     <select class = "form-control" name = "sess" >
-                    	<option value = "30">��ס��(Ĭ��ʱ��)</option>
-                    	<option value = "60">1Сʱ</option>
-                    	<option value = "120">2Сʱ</option>
-                    	<option value = "300">5Сʱ</option>
+                    	<option value = "30">记住我(默认时间)</option>
+                    	<option value = "60">1小时</option>
+                    	<option value = "120">2小时</option>
+                    	<option value = "300">5小时</option>
                     </select><br/>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">��¼</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">登录</button>
                 </form>
             </div>
         </div>

@@ -10,8 +10,8 @@ public class CreateDB {
 	private String sql;
 	private Connection conn;
 	private PreparedStatement pstmt;
-	
-	public void BuildDB(){
+
+	public void BuildDB() {
 		username = "root";
 		password = "";
 		classname = "com.mysql.jdbc.Driver";
@@ -32,10 +32,8 @@ public class CreateDB {
 			sql = "drop table if exists `teacher`";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			sql = "create table `teacher`("
-					+ "`tid` char(20),"
-					+ "`name` char(20),"
-					+ "`password` char(20),"
+			sql = "create table `teacher`(" + "`tid` char(20),"
+					+ "`name` char(20)," + "`password` char(20),"
 					+ "primary key(`tid`)"
 					+ ")ENGINE=InnoDB DEFAULT CHARSET=gbk";
 			pstmt = conn.prepareStatement(sql);
@@ -49,10 +47,8 @@ public class CreateDB {
 			sql = "drop table if exists `student`";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			sql = "create table `student`("
-					+ "`sid` char(20),"
-					+ "`name` char(20),"
-					+ "`sex` char(10),"
+			sql = "create table `student`(" + "`sid` char(20),"
+					+ "`name` char(20)," + "`sex` char(10),"
 					+ "primary key(`sid`)"
 					+ ")ENGINE=InnoDB DEFAULT CHARSET=gbk";
 			pstmt = conn.prepareStatement(sql);
@@ -60,20 +56,16 @@ public class CreateDB {
 			sql = "drop table if exists `course`";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			sql = "create table `course`("
-					+ "`cid` char(20),"
-					+ "`name` char(20),"
-					+ "primary key(`cid`)"
+			sql = "create table `course`(" + "`cid` char(20),"
+					+ "`name` char(20)," + "primary key(`cid`)"
 					+ ")ENGINE=InnoDB DEFAULT CHARSET=gbk";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 			sql = "drop table if exists `grade`";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			sql = "create table `grade`("
-					+ "`sid` char(20),"
-					+ "`cid` char(20),"
-					+ "`score` double,"
+			sql = "create table `grade`(" + "`sid` char(20),"
+					+ "`cid` char(20)," + "`score` double,"
 					+ "primary key(`sid`, `cid`)"
 					+ ")ENGINE=InnoDB DEFAULT CHARSET=gbk";
 			pstmt = conn.prepareStatement(sql);

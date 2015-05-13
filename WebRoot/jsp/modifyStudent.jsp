@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>"> 
-<title>ĞŞ¸ÄÑ§Éú³É¼¨</title>
-
+<title>ä¿®æ”¹å­¦ç”Ÿæˆç»©</title>
+<%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
 <link rel = "stylesheet" href = "./bootstrap/bootstrap.min.css">
@@ -19,17 +19,16 @@ function Confirm(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
-    return confirm("È·ÈÏĞŞ¸Ä?");
+    return confirm("ç¡®è®¤ä¿®æ”¹?");
 }
 </script>
 
 <body>
-<h1 style = "text-align:center">ĞŞ¸ÄÑ§ÉúĞÅÏ¢</h1>
-<hr/>
+<h2 style = "text-align:center">ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯</h2>
 <% 
 String sid =request.getParameter("sid");
 %>
@@ -42,13 +41,13 @@ String sid =request.getParameter("sid");
                         <input type="text" class="form-control" name = "sid" value = <%=sid %> readonly/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "name" placeholder="ÇëÊäÈëÑ§ÉúĞÕÃû"/>
+                        <input type="text" class="form-control" name = "name" placeholder="è¯·è¾“å…¥å­¦ç”Ÿå§“å"/>
                     </div>
                     <select class = "form-control" name = "sex" >
-                        <option value = "1">ÄĞ</option>
-                        <option value = "2">Å®</option>
+                        <option value = "1">ç”·</option>
+                        <option value = "2">å¥³</option>
                     </select><br/>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ĞŞ¸Ä</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ä¿®æ”¹</button>
                 </form>
             </div>
         </div>

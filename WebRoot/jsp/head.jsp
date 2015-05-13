@@ -1,9 +1,9 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>ҳü</title>
+<title>页眉</title>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
 <link rel = "stylesheet" href = "../bootstrap/bootstrap.min.css">
@@ -17,7 +17,7 @@
     	if(session.getAttribute("userinfo") == null) {  
 	%>  
         <script type="text/javascript">  
-            alert("����û�е�¼, ���¼��ʱ, �����µ�½!");  
+            alert("您还没有登录, 或登录超时, 请重新登陆!");  
             window.document.location.href="./jsp/login.jsp";  
         </script>   
 	<%  
@@ -33,14 +33,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <h3 class = "nav navbar-text">
-        	<a href="./jsp/main.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "ת����ҳ"></span></a> ��ӭʹ��ѧ���ɼ�����ϵͳ
+        	<a href="./jsp/main.jsp"><span class="glyphicon glyphicon-home inline_icon" style = "color:black" id="back_icon" title = "转到主页"></span></a> 欢迎使用学生成绩管理系统
        </h3>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=username %><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="./jsp/modifyTeacher.jsp">������Ϣ</a></li>
-            <li><a href="./servlet/LogoutServlet">�˳���¼</a></li>
+            <li><a href="./jsp/modifyTeacher.jsp">个人信息</a></li>
+            <li><a href="./servlet/LogoutServlet">退出登录</a></li>
           </ul>
         </li>
       </ul>

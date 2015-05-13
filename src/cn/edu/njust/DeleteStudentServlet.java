@@ -15,7 +15,6 @@ public class DeleteStudentServlet extends HttpServlet {
 		super();
 	}
 
-	
 	public void destroy() {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
@@ -29,20 +28,26 @@ public class DeleteStudentServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		request.setCharacterEncoding("GB2312");
-		response.setCharacterEncoding("GB2312");
-		HttpSession session = request.getSession(); 
-		if(session.getAttribute("userinfo") == null) response.sendRedirect("../jsp/head.jsp");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userinfo") == null) {
+			response.sendRedirect("../jsp/servletLoginCheck.jsp");
+			return;
+		}
 		String stu[] = request.getParameterValues("checkbox1");
-		if(stu == null) response.sendRedirect("../jsp/Check.jsp?value=successful");
-		else{
+		if (stu == null)
+			response.sendRedirect("../jsp/Check.jsp?value=successful");
+		else {
 			int cnt = 0;
-			for(int i = 0; i < stu.length; i++){
+			for (int i = 0; i < stu.length; i++) {
 				StudentBean student = new StudentBean(stu[i]);
 				cnt += student.deleteStudent();
 			}
-			if(cnt == stu.length) response.sendRedirect("../jsp/Check.jsp?value=successful");
-			else response.sendRedirect("../jsp/Check.jsp?value=failure");
+			if (cnt == stu.length)
+				response.sendRedirect("../jsp/Check.jsp?value=successful");
+			else
+				response.sendRedirect("../jsp/Check.jsp?value=failure");
 		}
 	}
 

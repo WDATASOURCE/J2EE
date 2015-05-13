@@ -1,4 +1,4 @@
-<%@ page language="java" import = "java.sql.*" pageEncoding="GB2312"%>
+<%@ page language="java" import = "java.sql.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>"> 
-<title>¸öÈËĞÅÏ¢</title>
+<title>ä¸ªäººä¿¡æ¯</title>
 
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -35,11 +35,11 @@ function Confirm1(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
-    return confirm("È·ÈÏĞŞ¸Ä?");
+    return confirm("ç¡®è®¤ä¿®æ”¹?");
 }
 
 function Confirm2(){
@@ -47,21 +47,21 @@ function Confirm2(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "password" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
     with(document.all){
         if(password_old.value != <%=teacher.getPassword()%>){
-            alert("ÄúÊäÈëµÄÔ­Ê¼ÃÜÂë²»ÕıÈ·£¡");
+            alert("æ‚¨è¾“å…¥çš„åŸå§‹å¯†ç ä¸æ­£ç¡®ï¼");
             return false;
         }
         if(password_new.value != password_rep.value){
-            alert("ÄúÁ½´ÎÊäÈëµÄÃÜÂë²»Í¬£¬ÇëÖØĞÂÊäÈë£¡");
+            alert("æ‚¨ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸åŒï¼Œè¯·é‡æ–°è¾“å…¥ï¼");
             return false;
         }
     }
-    return confirm("È·ÈÏĞŞ¸Ä?");
+    return confirm("ç¡®è®¤ä¿®æ”¹?");
 }
 </script>
 
@@ -71,18 +71,18 @@ function Confirm2(){
         <div class = "col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">»ù±¾ÉèÖÃ</div>
+                <div class="panel-heading">åŸºæœ¬è®¾ç½®</div>
                 <form class="form-horizontal panel-body" method="post" action="./servlet/UpdateTeacherServlet">
                     <input type="hidden" name="tid" value="<%=teacher.getTid()%>">
                     <input type="hidden" name = "password" value = "<%=teacher.getPassword()%>">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">ÓÃ»§Ãû</label>
+                        <label class="col-sm-3 control-label">ç”¨æˆ·å</label>
                         <div class="col-sm-9">
                             <label class="control-label"><%=teacher.getTid() %></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">½ÌÊ¦ĞÕÃû</label>
+                        <label class="col-sm-3 control-label">æ•™å¸ˆå§“å</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="name" value="<%=teacher.getName()%>">
                         </div>
@@ -90,7 +90,7 @@ function Confirm2(){
                     <div class="form-group">
                         <div class = "col-sm-4"></div>
                         <div class="control-label col-sm-4">
-                            <button class="btn btn-default btn-block" type="submit" onclick = "return Confirm1()">ĞŞ¸Ä</button>
+                            <button class="btn btn-default btn-block" type="submit" onclick = "return Confirm1()">ä¿®æ”¹</button>
                         </div>
                         <div class = "col-sm-4"></div>
                     </div>
@@ -99,7 +99,7 @@ function Confirm2(){
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse_change_pass" class="collapsed">ĞŞ¸ÄÃÜÂë </a>
+                        <a data-toggle="collapse" href="#collapse_change_pass" class="collapsed">ä¿®æ”¹å¯†ç  </a>
                     </h4>
                 </div>
                 <div class="panel-collapse collapse" id="collapse_change_pass">
@@ -108,21 +108,21 @@ function Confirm2(){
                         <input type="hidden" name="tid" value="<%=teacher.getTid()%>">
                         <input type = "hidden" name = "name" value = "<%=teacher.getName() %>">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Ô­Ê¼ÃÜÂë</label>
+                            <label class="col-sm-3 control-label">åŸå§‹å¯†ç </label>
                             <div class="col-sm-9">
                                 <label class="err-msg-label"></label>
                                 <input class="form-control" type="password" id = "password_old" name="password_old">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">ĞÂÃÜÂë</label>
+                            <label class="col-sm-3 control-label">æ–°å¯†ç </label>
                             <div class="col-sm-9">
                                 <label class="err-msg-label"></label>
                                 <input class="form-control" type="password" id = "password_new" name="password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">ÖØ¸´ĞÂÃÜÂë</label>
+                            <label class="col-sm-3 control-label">é‡å¤æ–°å¯†ç </label>
                             <div class="col-sm-9">
                                 <label class="err-msg-label"></label>
                                 <input class="form-control" type="password" id = "password_rep" name="password_rep">
@@ -131,7 +131,7 @@ function Confirm2(){
                         <div class="form-group">
                             <div class = "col-sm-4"></div>
                             <div class="control-label col-sm-4">
-                                <button class="btn btn-default btn-block" type="submit" onclick = "return Confirm2()">ĞŞ¸Ä</button>
+                                <button class="btn btn-default btn-block" type="submit" onclick = "return Confirm2()">ä¿®æ”¹</button>
                             </div>
                             <div class = "col-sm-4"></div>
                         </div>

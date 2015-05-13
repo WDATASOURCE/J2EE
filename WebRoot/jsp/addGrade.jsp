@@ -1,4 +1,4 @@
-<%@ page language="java" import = "java.sql.*" pageEncoding="GB2312"%>
+<%@ page language="java" import = "java.sql.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">  
-<title>Ìí¼Ó³É¼¨ĞÅÏ¢</title>
+<title>æ·»åŠ æˆç»©ä¿¡æ¯</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -22,20 +22,20 @@ function Confirm(Strvalue){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
     var str = Strvalue.value;
-    if(str >= 0 && str <= 100) return confirm("È·ÈÏÌí¼Ó?");
+    if(str >= 0 && str <= 100) return confirm("ç¡®è®¤æ·»åŠ ?");
     else{
-    	alert("³É¼¨ÊäÈë²»ºÏ·¨, ÇëÖØĞÂÊäÈë!");
+    	alert("æˆç»©è¾“å…¥ä¸åˆæ³•, è¯·é‡æ–°è¾“å…¥!");
     	return false;
     }
 }
 </script>
 <body>
-<h2 style = "text-align:center"> Ìí¼Ó³É¼¨ĞÅÏ¢ </h2>
+<h2 style = "text-align:center"> æ·»åŠ æˆç»©ä¿¡æ¯ </h2>
 <jsp:useBean id = "student" class = "cn.edu.njust.StudentBean" scope = "page"/>
 <jsp:useBean id = "course" class = "cn.edu.njust.CourseBean" scope = "page"/>
 <%
@@ -66,9 +66,9 @@ ResultSet rsCourse = course.query();
                         %>
                     </select>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "score" id = "score" placeholder="ÇëÊäÈëÑ§Éú³É¼¨"/>
+                        <input type="text" class="form-control" name = "score" id = "score" placeholder="è¯·è¾“å…¥å­¦ç”Ÿæˆç»©"/>
                     </div>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm(document.getElementById('score'))">Ìí¼Ó</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm(document.getElementById('score'))">æ·»åŠ </button>
                 </form>
             </div>
         </div>
