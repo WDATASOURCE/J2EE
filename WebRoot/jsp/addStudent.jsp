@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">  
-<title>ÃÌº”—ß…˙–≈œ¢</title>
+<title>Ê∑ªÂä†Â≠¶Áîü‰ø°ÊÅØ</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -20,32 +20,32 @@ function Confirm(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±Ìµ•÷–∫¨”–Œ¥ÃÓ–¥◊÷∂Œ, «Î»∑±£ÃÓ–¥¡ÀÀ˘”–◊÷∂Œ!");
+            alert("Ë°®Âçï‰∏≠Âê´ÊúâÊú™Â°´ÂÜôÂ≠óÊÆµ, ËØ∑Á°Æ‰øùÂ°´ÂÜô‰∫ÜÊâÄÊúâÂ≠óÊÆµ!");
             return false;
         }
     }
-    return confirm("»∑»œÃÌº”?");
+    return confirm("Á°ÆËÆ§Ê∑ªÂä†?");
 }
 </script>
 
 <body>
-<h2 style = "text-align:center">ÃÌº”—ß…˙–≈œ¢</h2>
+<h2 style = "text-align:center">Ê∑ªÂä†Â≠¶Áîü‰ø°ÊÅØ</h2>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="form-group">
                 <form action="./servlet/AddStudentServlet" method = "post" class="form-group">
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "sid" placeholder="«Î ‰»Î—ß…˙—ß∫≈"/>
+                        <input type="text" class="form-control" name = "sid" placeholder="ËØ∑ËæìÂÖ•Â≠¶ÁîüÂ≠¶Âè∑"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "name" placeholder="«Î ‰»Î—ß…˙–’√˚"/>
+                        <input type="text" class="form-control" name = "name" placeholder="ËØ∑ËæìÂÖ•Â≠¶ÁîüÂßìÂêç"/>
                     </div>
                     <select class = "form-control" name = "sex" >
-                        <option value = "1">ƒ–</option>
-                        <option value = "2">≈Æ</option>
+                        <option value = "1">Áî∑</option>
+                        <option value = "2">Â•≥</option>
                     </select><br/>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ÃÌº”</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">Ê∑ªÂä†</button>
                 </form>
             </div>
         </div>

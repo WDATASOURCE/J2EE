@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>"> 
-<title>ĞŞ¸Ä¿Î³ÌĞÅÏ¢</title>
+<title>ä¿®æ”¹è¯¾ç¨‹ä¿¡æ¯</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -22,16 +22,16 @@ function Confirm(){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
-    return confirm("È·ÈÏĞŞ¸Ä?");
+    return confirm("ç¡®è®¤ä¿®æ”¹?");
 }
 </script>
 
 <body>
-<h2 style = "text-align:center">ĞŞ¸Ä¿Î³ÌĞÅÏ¢</h2>
+<h2 style = "text-align:center">ä¿®æ”¹è¯¾ç¨‹ä¿¡æ¯</h2>
 <% 
 String cid =request.getParameter("cid");
 %>
@@ -44,9 +44,9 @@ String cid =request.getParameter("cid");
                         <input type="text" class="form-control" name = "cid" value = <%= cid %> readonly/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "name" placeholder="ÇëÊäÈë¿ÆÄ¿Ãû³Æ"/>
+                        <input type="text" class="form-control" name = "name" placeholder="è¯·è¾“å…¥ç§‘ç›®åç§°"/>
                     </div>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ĞŞ¸Ä</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ä¿®æ”¹</button>
                 </form>
             </div>
         </div>

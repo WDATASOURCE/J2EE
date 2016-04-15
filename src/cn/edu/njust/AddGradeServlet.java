@@ -14,6 +14,7 @@ public class AddGradeServlet extends HttpServlet {
 	public AddGradeServlet() {
 		super();
 	}
+
 	public void destroy() {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
@@ -27,17 +28,25 @@ public class AddGradeServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		request.setCharacterEncoding("GB2312");
-		response.setCharacterEncoding("GB2312"); 
-		HttpSession session = request.getSession(); 
-		if(session.getAttribute("userinfo") == null) response.sendRedirect("../jsp/head.jsp");
-		GradeBean grade = new GradeBean(request.getParameter("sid"), request.getParameter("cid"), Double.valueOf(request.getParameter("score")));
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userinfo") == null) {
+			response.sendRedirect("../jsp/servletLoginCheck.jsp");
+			return;
+		}
+		GradeBean grade = new GradeBean(request.getParameter("sid"),
+				request.getParameter("cid"), Double.valueOf(request
+						.getParameter("score")));
 		int cnt = grade.addGrade();
-		if(cnt == 1) response.sendRedirect("../jsp/Check.jsp?value=successful");
-		else if(cnt == 0) response.sendRedirect("../jsp/Check.jsp?value=the Grade has been existing");
-		else response.sendRedirect("../jsp/Check.jsp?value=failure");
+		if (cnt == 1)
+			response.sendRedirect("../jsp/Check.jsp?value=successful");
+		else if (cnt == 0)
+			response.sendRedirect("../jsp/Check.jsp?value=the Grade has been existing");
+		else
+			response.sendRedirect("../jsp/Check.jsp?value=failure");
 	}
-	
+
 	public void init() throws ServletException {
 		// Put your code here
 	}

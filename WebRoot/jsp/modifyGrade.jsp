@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>ĞŞ¸Ä³É¼¨</title>
+<title>ä¿®æ”¹æˆç»©</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -18,25 +18,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <script type="text/javascript">
-function Confirm(){
+function Confirm(Strvalue){
     var a = document.getElementsByTagName("input");
     for(var i = 0; i < a.length; i++){
         if(a[i].type == "text" && a[i].value == ""){
-            alert("±íµ¥ÖĞº¬ÓĞÎ´ÌîĞ´×Ö¶Î, ÇëÈ·±£ÌîĞ´ÁËËùÓĞ×Ö¶Î!");
+            alert("è¡¨å•ä¸­å«æœ‰æœªå¡«å†™å­—æ®µ, è¯·ç¡®ä¿å¡«å†™äº†æ‰€æœ‰å­—æ®µ!");
             return false;
         }
     }
-    return confirm("È·ÈÏĞŞ¸Ä?");
+    var str = Strvalue.value;
+	if(str >= 0 && str <= 100) return confirm("ç¡®è®¤ä¿®æ”¹?");
+    else{
+    	alert("æˆç»©è¾“å…¥ä¸åˆæ³•, è¯·é‡æ–°è¾“å…¥!");
+    	return false;
+    }
 }
 </script>
 
 <body>
-<h2 style = "text-align:center">ĞŞ¸Ä³É¼¨ĞÅÏ¢</h2>
+<h2 style = "text-align:center">ä¿®æ”¹æˆç»©ä¿¡æ¯</h2>
 <% 
 String sid =request.getParameter("sid");
 String cid = request.getParameter("cid");
 %>
-<h3 style = "text-align:center">ÇëÊäÈë¸üĞÂºóµÄÊı¾İ</h3>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -49,9 +54,9 @@ String cid = request.getParameter("cid");
                         <input type="text" class="form-control" name = "cid" value = <%=cid %> readonly />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name = "score" placeholder="ÇëÊäÈëÑ§Éú³É¼¨"/>
+                        <input type="text" class="form-control" name = "score" id = "score" placeholder="è¯·è¾“å…¥å­¦ç”Ÿæˆç»©"/>
                     </div>
-                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm()">ĞŞ¸Ä</button>
+                    <button class="btn btn-block btn-primary" type="submit" onclick = "return Confirm(document.getElementById('score'))">ä¿®æ”¹</button>
                 </form>
             </div>
         </div>

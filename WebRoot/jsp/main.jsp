@@ -1,4 +1,4 @@
-<%@ page language="java" import = "java.sql.*" pageEncoding="GB2312"%>
+<%@ page language="java" import = "java.sql.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>"> 
-<title>Ö÷Ò³</title>
+<title>ä¸»é¡µ</title>
 <%@include file = "./head.jsp" %>
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 <!-- bootstrap -->
@@ -39,9 +39,9 @@ function selectAll(name){
 <div class = "container">
     <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
-            <li class = "active"><a href = "#tab1" data-toggle = "tab">Ñ§ÉúĞÅÏ¢</a></li>
-            <li><a href = "#tab2" data-toggle = "tab">¿Î³ÌĞÅÏ¢</a></li>
-            <li><a href = "#tab3" data-toggle = "tab">³É¼¨ĞÅÏ¢</a></li>
+            <li class = "active"><a href = "#tab1" data-toggle = "tab">å­¦ç”Ÿä¿¡æ¯</a></li>
+            <li><a href = "#tab2" data-toggle = "tab">è¯¾ç¨‹ä¿¡æ¯</a></li>
+            <li><a href = "#tab3" data-toggle = "tab">æˆç»©ä¿¡æ¯</a></li>
         </ul>
         <div class = "tab-content">
             <div class = "tab-pane active" id = "tab1"><br/>
@@ -51,20 +51,20 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addStudent.jsp">Ìí¼ÓÑ§ÉúĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox1')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addStudent.jsp">æ·»åŠ å­¦ç”Ÿä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox1')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>
                     </table>
                     <table class="table table-striped table-bordered table-hover table-condensed">
                         <tr style="text-align:center">
-                            <td>Ñ¡Ôñ</td>
-                            <td>Ñ§ÉúÑ§ºÅ</td>
-                            <td>Ñ§ÉúĞÕÃû</td>
-                            <td>Ñ§ÉúĞÔ±ğ</td>
-                            <td>²Ù×÷</td>
+                            <td>é€‰æ‹©</td>
+                            <td>å­¦ç”Ÿå­¦å·</td>
+                            <td>å­¦ç”Ÿå§“å</td>
+                            <td>å­¦ç”Ÿæ€§åˆ«</td>
+                            <td>æ“ä½œ</td>
                         </tr>
                         <%		
                         ResultSet rs = student.query();
@@ -73,7 +73,7 @@ function selectAll(name){
                         out.println("<tr style='text-align:center'>");
                             out.println("<td><input type = 'checkbox' name = 'checkbox1' id = '" + sid + "' value = '" + sid +"'/> </td>");
                             out.println("<td>" + sid + "</td> \n <td>" + rs.getString("name") + "</td> \n <td>" + rs.getString("sex") + "</td>");
-                            out.println("<td> <a href = './jsp/modifyStudent.jsp?sid=" + sid + "'> <input type = 'button' value = '¸üĞÂ' /></a></td>");
+                            out.println("<td> <a href = './jsp/modifyStudent.jsp?sid=" + sid + "'> <input type = 'button' value = 'æ›´æ–°' /></a></td>");
                             out.println("</tr>");
                         }
                         student.closeConnection();
@@ -83,9 +83,9 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addStudent.jsp">Ìí¼ÓÑ§ÉúĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox1')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addStudent.jsp">æ·»åŠ å­¦ç”Ÿä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox1')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>
@@ -100,19 +100,19 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addCourse.jsp">Ìí¼Ó¿Î³ÌĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox2')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addCourse.jsp">æ·»åŠ è¯¾ç¨‹ä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox2')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>
                     </table>
                     <table class="table table-striped table-bordered table-hover table-condensed">
                         <tr style="text-align:center">
-                            <td>Ñ¡Ôñ</td>
-                            <td>¿Î³Ì±àºÅ</td>
-                            <td>¿Î³ÌÃû³Æ</td>
-                            <td>²Ù×÷</td>
+                            <td>é€‰æ‹©</td>
+                            <td>è¯¾ç¨‹ç¼–å·</td>
+                            <td>è¯¾ç¨‹åç§°</td>
+                            <td>æ“ä½œ</td>
                         </tr>
                         <%		
                         ResultSet rss = course.query();
@@ -121,7 +121,7 @@ function selectAll(name){
                         out.println("<tr style='text-align:center'>");
                             out.println("<td><input type = 'checkbox' name = 'checkbox2' id = '" + cid + "' value = '" + cid +"'/> </td>");
                             out.println("<td>" + cid + "</td> \n <td>" + rss.getString("name") + "</td>");
-                            out.println("<td> <a href = './jsp/modifyCourse.jsp?cid=" + cid + "'> <input type = 'button' value = '¸üĞÂ' /></a></td>");
+                            out.println("<td> <a href = './jsp/modifyCourse.jsp?cid=" + cid + "'> <input type = 'button' value = 'æ›´æ–°' /></a></td>");
                             out.println("</tr>");
                         }
                         course.closeConnection();
@@ -131,9 +131,9 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addCourse.jsp">Ìí¼Ó¿Î³ÌĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox2')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addCourse.jsp">æ·»åŠ è¯¾ç¨‹ä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox2')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>
@@ -148,20 +148,20 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addGrade.jsp">Ìí¼Ó³É¼¨ĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox3')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addGrade.jsp">æ·»åŠ æˆç»©ä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox3')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>
                     </table>
                     <table class="table table-striped table-bordered table-hover table-condensed">
                         <tr style="text-align:center">
-                            <td>Ñ¡Ôñ</td>
-                            <td>Ñ§ÉúÑ§ºÅ</td>
-                            <td>¿Î³Ì±àºÅ</td>
-                            <td>Ñ§Éú³É¼¨</td>
-                            <td>²Ù×÷</td>
+                            <td>é€‰æ‹©</td>
+                            <td>å­¦ç”Ÿå­¦å·</td>
+                            <td>è¯¾ç¨‹ç¼–å·</td>
+                            <td>å­¦ç”Ÿæˆç»©</td>
+                            <td>æ“ä½œ</td>
                         </tr>
                         <%		
                         ResultSet rsss = grade.query();
@@ -171,7 +171,7 @@ function selectAll(name){
                         out.println("<tr style='text-align:center'>");
                             out.println("<td><input type = 'checkbox' name = 'checkbox3' value = '" + sid +"&&" + cid + "'/> </td>");
                             out.println("<td>" + sid + "</td> \n <td>" + cid + "</td> \n <td>" + rsss.getDouble("score") + "</td>");
-                            out.println("<td> <a href = './jsp/modifyGrade.jsp?sid=" + sid + "&cid=" + cid +"'> <input type = 'button' value = '¸üĞÂ' /></a></td>");
+                            out.println("<td> <a href = './jsp/modifyGrade.jsp?sid=" + sid + "&cid=" + cid +"'> <input type = 'button' value = 'æ›´æ–°' /></a></td>");
                             out.println("</tr>");
                         }
                         grade.closeConnection();
@@ -181,9 +181,9 @@ function selectAll(name){
                         <thead>
                             <tr style="text-align:center">
                                 <td style = "width:35%"></td>
-                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addGrade.jsp">Ìí¼Ó³É¼¨ĞÅÏ¢</a></td>
-                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox3')">È«Ñ¡/È«²»Ñ¡</button></td>
-                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('È·ÈÏÉ¾³ı?')">É¾³ıËùÑ¡¼ÇÂ¼</button></td>
+                                <td><a class = "btn btn-primary btn-sm" href = "./jsp/addGrade.jsp">æ·»åŠ æˆç»©ä¿¡æ¯</a></td>
+                                <td><button type="button" class="btn btn-primary btn-sm" onclick = "selectAll('checkbox3')">å…¨é€‰/å…¨ä¸é€‰</button></td>
+                                <td><button type="submit" class="btn btn-primary btn-sm btn-danger" onclick = "return confirm('ç¡®è®¤åˆ é™¤?')">åˆ é™¤æ‰€é€‰è®°å½•</button></td>
                                 <td style = "width:35%"></td>
                             </tr>
                         </thead>

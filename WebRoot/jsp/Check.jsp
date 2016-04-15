@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,8 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>ÑéÖ¤</title>
-    
+    <title>éªŒè¯</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -24,8 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%	
-    	request.setCharacterEncoding("GB2312");
-		response.setCharacterEncoding("GB2312");  
+    	request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");  
 	%>
         <script type="text/javascript" language="javascript"> 
         	<% String value = request.getParameter("value"); %> 
